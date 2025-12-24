@@ -1,0 +1,25 @@
+services:
+  frontend:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./apps/web:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - ANALYSIS_SERVICE_URL=http://audio-analysis:8000
+    command: bun run dev -- --host --port 3000
+
+  audio-analysis:
+    build:
+      context: ./services/audio-analysis
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./services/audio-analysis:/app
+    environment:
+      - ENV=development

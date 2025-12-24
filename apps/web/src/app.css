@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --bg-dark: #1e1e1e;
+  --bg-panel: #181818;
+  --bg-grid: #121212;
+  --accent-primary: #ff00eb;
+  --accent-secondary: #00ffcc;
+  --border-dim: #333;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: #ccc;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  overflow: hidden;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background: var(--bg-grid);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
